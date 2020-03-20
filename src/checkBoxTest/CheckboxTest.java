@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 
 import java.util.List;
 
@@ -18,6 +19,8 @@ public class CheckboxTest {
         WebElement checkbox = driver.findElement(By.xpath("//*[@id=\"ctl00_mainContent_chk_SeniorCitizenDiscount\"]"));
         checkbox.click();
         System.out.println(checkbox.isSelected());
+
+        Assert.assertFalse(checkbox.isSelected());
 
         /* checkbox counts */
 
