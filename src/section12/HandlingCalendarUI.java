@@ -22,10 +22,18 @@ public class HandlingCalendarUI {
         driver.findElement(By.xpath("//*[@id=\"travel_date\"]")).click();
         Thread.sleep(3000);
 
+        //Grab common attribute.
+        // June 24, 2020 select month and date
+        WebElement month = driver.findElement(By.xpath("/html/body/div[4]/div[1]/table/thead/tr[1]/th[2]"));
+        while(!month.getText().contains("June")) {
+            Thread.sleep(1000);
+            driver.findElement(By.xpath("/html/body/div[4]/div[1]/table/thead/tr[1]/th[3]")).click();
+        }
+
         List<WebElement> elements = driver.findElements(By.className("day"));
 
         for (WebElement element : elements) {
-            if(element.getText().equals("31")) {
+            if(element.getText().equals("24")) {
                 element.click();
                 break;
             }
